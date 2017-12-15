@@ -8,8 +8,10 @@ echo 'set expandtab' >> $HOME/.vimrc
 
 echo 'Installing vim-airline vim plugin...'
 
-git clone https://github.com/vim-airline/vim-airline.git $HOME/.vim/pack/plugins/start/vim-airline
-echo 'OK'
+if [ ! -d "$HOME/.vim/pack/plugins/start/vim-airline/" ]; then 
+  git clone https://github.com/vim-airline/vim-airline.git $HOME/.vim/pack/plugins/start/vim-airline
+  echo 'OK'
+end
 
 echo 'Installing NERD_tree vim plugin...'
 
