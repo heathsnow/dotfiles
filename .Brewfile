@@ -1,4 +1,6 @@
+brew "mas"
+brew "wget"
 cask "chefdk"
 cask "dropbox"
-brew "wget"
 cask "spotify"
+
