@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+ensure_dotfile_link() {
+  HOMEFILE="$HOME/$1"
+  DOTFILE="$(pwd -P)"
+  
+  if [ -L "$HOMEFILE" ] && ! [ -d "$DOTFILE" ]; then
+    ln -sfv "$DOTFILE" "$HOMEFILE"
+  else
+    rm -rv "$HOMEFILE"
+    ln -sv "$DOTFILE" "$HOMEFILE"
+  fi
+}
+
+ensure_dotfile_link .bash_profile
+ensure_dotfile_link .bashrc
+ensure_dotfile_link .Brewfile
