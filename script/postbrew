@@ -11,7 +11,7 @@ echo 'Installing vim-airline vim plugin...'
 if [ ! -d "$HOME/.vim/pack/plugins/start/vim-airline/" ]; then 
   git clone https://github.com/vim-airline/vim-airline.git $HOME/.vim/pack/plugins/start/vim-airline
   echo 'OK'
-end
+fi
 
 echo 'Installing NERD_tree vim plugin...'
 
@@ -20,5 +20,5 @@ if [ ! -d "$HOME/.vim/pack/plugins/start/NERD_tree/" ]; then
   unzip -q /tmp/NERD_tree.zip -d $HOME/.vim/pack/plugins/start/NERD_tree/
   rm /tmp/NERD_TREE.zip
   echo 'OK'
-end
+fi
 
