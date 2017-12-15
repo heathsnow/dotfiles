@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
-#######################
-# install vim plugins #
-######################
+echo 'Turning on vim syntax highlighting...'
+echo 'syntax on' >> $HOME/.vimrc
 
-# airline
 echo 'Installing vim-airline vim plugin...'
+
 git clone https://github.com/vim-airline/vim-airline.git $HOME/.vim/pack/plugins/start/vim-airline
 echo 'OK'
-# NERD_tree
+
 echo 'Installing NERD_tree vim plugin...'
+
 curl -o /tmp/NERD_tree.zip http://www.vim.org/scripts/download_script.php?src_id=23731
 unzip -q /tmp/NERD_tree.zip -d $HOME/.vim/pack/plugins/start/NERD_tree/
 rm /tmp/NERD_TREE.zip
 echo 'OK'
+
+
