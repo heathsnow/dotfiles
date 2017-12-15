@@ -15,12 +15,3 @@ ensure_dotfile_link() {
 ensure_dotfile_link .bash_profile
 ensure_dotfile_link .bashrc
 ensure_dotfile_link .Brewfile
-
-# install spotify
-
-curl https://download.spotify.com/Spotify.dmg -o ~/Downloads/Spotify.dmg
-hdiutil attach ~/Downloads/Spotify.dmg
-ditto /Volumes/Spotify/Spotify.app /Applications/Spotify.app
-diskutil unmount Spotify
-rm ~/Downloads/Spotify.dmg
-
