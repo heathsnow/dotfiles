@@ -11,6 +11,6 @@ echo 'OK'
 # NERD_tree
 echo 'Installing NERD_tree vim plugin...'
 curl -o /tmp/NERD_tree.zip http://www.vim.org/scripts/download_script.php?src_id=23731
-unzip /tmp/NERD_tree.zip -q -d $HOME/.vim/pack/plugins/start/NERD_tree
+unzip -q /tmp/NERD_tree.zip -d $HOME/.vim/pack/plugins/start/NERD_tree/
 rm /tmp/NERD_TREE.zip
 echo 'OK'
