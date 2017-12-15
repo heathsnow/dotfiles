@@ -2,6 +2,9 @@
 
 echo 'Turning on vim syntax highlighting...'
 echo 'syntax on' >> $HOME/.vimrc
+echo 'set tabstop=2' >> $HOME/.vimrc
+echo 'set shiftwidth=2' >> $HOME/.vimrc
+echo 'set expandtab' >> $HOME/.vimrc
 
 echo 'Installing vim-airline vim plugin...'
 
@@ -10,9 +13,10 @@ echo 'OK'
 
 echo 'Installing NERD_tree vim plugin...'
 
-curl -o /tmp/NERD_tree.zip http://www.vim.org/scripts/download_script.php?src_id=23731
-unzip -q /tmp/NERD_tree.zip -d $HOME/.vim/pack/plugins/start/NERD_tree/
-rm /tmp/NERD_TREE.zip
-echo 'OK'
-
+if [ ! -d "$HOME/.vim/pack/plugins/start/NERD_tree/" ]; then
+  curl -o /tmp/NERD_tree.zip http://www.vim.org/scripts/download_script.php?src_id=23731
+  unzip -q /tmp/NERD_tree.zip -d $HOME/.vim/pack/plugins/start/NERD_tree/
+  rm /tmp/NERD_TREE.zip
+  echo 'OK'
+end
 
