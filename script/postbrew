@@ -1,8 +1,0 @@
-# install spotify
-
-curl https://download.spotify.com/Spotify.dmg -o ~/Downloads/Spotify.dmg
-hdiutil attach ~/Downloads/Spotify.dmg
-ditto /Volumes/Spotify/Spotify.app /Applications/Spotify.app
-diskutil unmount Spotify
-rm ~/Downloads/Spotify.dmg
-
