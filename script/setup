@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+DOTFILESDIRREL=$(dirname $0)
+cd $DOTFILESDIRREL/..
+DAPTIV_DOTFILES=$(pwd -P)
+
 ensure_dotfile_link() {
   HOMEFILE="$HOME/$1"
-  DOTFILE="$(pwd -P)"
+  DOTFILE="$DAPTIV_DOTFILES/$1"
   
   if [ -L "$HOMEFILE" ] && ! [ -d "$DOTFILE" ]; then
     ln -sfv "$DOTFILE" "$HOMEFILE"
@@ -13,5 +17,4 @@ ensure_dotfile_link() {
 }
 
 ensure_dotfile_link .bash_profile
-ensure_dotfile_link .bashrc
 ensure_dotfile_link .Brewfile
