@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo 'Turning on vim syntax highlighting...'
+echo "Turning on vim syntax highlighting..."
 echo 'syntax on' >> $HOME/.vimrc
 echo 'set tabstop=2' >> $HOME/.vimrc
 echo 'set shiftwidth=2' >> $HOME/.vimrc
@@ -8,7 +8,7 @@ echo 'set expandtab' >> $HOME/.vimrc
 
 echo 'Installing vim-airline vim plugin...'
 
-if [ ! -d "$HOME/.vim/pack/plugins/start/vim-airline/" ]; then 
+if [ ! -d "$HOME/.vim/pack/plugins/start/vim-airline/" ]; then
   git clone https://github.com/vim-airline/vim-airline.git $HOME/.vim/pack/plugins/start/vim-airline
   echo 'OK'
 fi
@@ -22,6 +22,10 @@ if [ ! -d "$HOME/.vim/pack/plugins/start/NERD_tree/" ]; then
   echo 'OK'
 fi
 
+echo 'Please login to the AppStore then hit <ENTER>'
+echo '30s timeout before continuing...'
+read -n 1 -s -t 30
+
 echo 'Installing Mac AppStore apps...'
 # 1Password
 mas install 443987910
@@ -33,3 +37,28 @@ mas install 803453959
 mas install 441258766
 # Update apps that need them
 mas upgrade
+echo 'OK'
+
+echo 'Setting up Chef...'
+if [ ! -d "$HOME/git/chef-repo" ]; then
+  git clone git@github.com:daptiv/chef-repo.git $HOME/git/chef-repo
+fi
+
+knife configure --defaults -s https://manage.chef.io/organizations/daptiv -r $HOME/git/chef-repo
+echo 'OK'
+
+echo 'Please ensure AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are set then his <ENTER>'
+echo '30s timeout before continuing...'
+read -n 1 -s -t 30
+
+if [ ! -d "$HOME/git/ops_rolaids" ]; then
+  git clone git@github.com:daptiv/ops_rolaids.git $HOME/git/ops_rolaids
+fi
+
+sh $HOME/git/ops_rolaids/assume_role.sh cicd && unset AWS_SECRET_ACCESS_KEY && unset AWS_ACCESS_KEY_ID
+
+
+
+
+
+

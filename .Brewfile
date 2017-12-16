@@ -1,3 +1,4 @@
+brew "jq"
 brew "mas"
 brew "wget"
 cask "chefdk"
