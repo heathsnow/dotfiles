@@ -22,6 +22,10 @@ if [ ! -d "$HOME/.vim/pack/plugins/start/NERD_tree/" ]; then
   echo 'OK'
 fi
 
+echo 'Updating ~/.gitconfig...'
+git config --global color.ui auto
+echo 'OK'
+
 echo 'Please login to the AppStore then hit <ENTER>'
 echo '30s timeout before continuing...'
 read -n 1 -s -t 30
