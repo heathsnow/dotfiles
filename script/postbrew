@@ -22,3 +22,14 @@ if [ ! -d "$HOME/.vim/pack/plugins/start/NERD_tree/" ]; then
   echo 'OK'
 fi
 
+echo 'Installing Mac AppStore apps...'
+# 1Password
+mas install 443987910
+# Microsoft Remote Desktop
+mas install 715768417
+# Slack
+mas install 803453959
+# Magnet
+mas install 441258766
+# Update apps that need them
+mas upgrade
