@@ -47,7 +47,7 @@ fi
 knife configure --defaults -s https://manage.chef.io/organizations/daptiv -r $HOME/git/chef-repo
 echo 'OK'
 
-echo 'Please ensure AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are set then his <ENTER>'
+echo 'Please ensure AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are set then hit <ENTER>'
 echo '30s timeout before continuing...'
 read -n 1 -s -t 30
 
@@ -55,9 +55,10 @@ if [ ! -d "$HOME/git/ops_rolaids" ]; then
   git clone git@github.com:daptiv/ops_rolaids.git $HOME/git/ops_rolaids
 fi
 
+echo 'Setting up AWS keys...'
 sh $HOME/git/ops_rolaids/assume_role.sh cicd && unset AWS_SECRET_ACCESS_KEY && unset AWS_ACCESS_KEY_ID
 
-
+# aws ssm get-parameters-by-path --path "/amazon/keys/" | jq '.Parameters'
 
 
 
