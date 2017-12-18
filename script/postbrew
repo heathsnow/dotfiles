@@ -88,7 +88,6 @@ read -n 1 -s -t 10
 mv $HOME/Downloads/encrypt* $HOME/.chef/
 mv $HOME/Downloads/ops_encrypt* $HOME/.chef/
 
-echo "Setting up bash prompt to be awesome..."
+logn 'Setting up bash prompt to be awesome...'
 cp -rf $HOME/.dotfiles/files/.git-prompt.bash $HOME/.git-prompt.bash
-echo -e "$GREEN OK $RESET"
-
+logk
