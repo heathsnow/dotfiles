@@ -90,5 +90,5 @@ mv $HOME/Downloads/ops_encrypt* $HOME/.chef/
 
 logn 'Setting up bash prompt to be awesome...'
 cp -rf $HOME/.dotfiles/files/.git-prompt.bash $HOME/.git-prompt.bash
-wget -O $HOME/.git-completion.bash https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+wget -O $HOME/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 logk
