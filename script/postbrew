@@ -67,3 +67,8 @@ mv $HOME/Downloads/*.pem $HOME/.ssh/
 chmod 444 $HOME/.ssh/*.pem
 echo 'OK'
 
+echo "Setting up bash prompt to be awesome..."
+cp -rf $PWD/files/.git-prompt.bash $HOME/.git-prompt.bash
+echo 'OK'
+
+
