@@ -48,7 +48,13 @@ if [ ! -d "$HOME/git/chef-repo" ]; then
   git clone git@github.com:daptiv/chef-repo.git $HOME/git/chef-repo
 fi
 
-knife configure --defaults -s https://manage.chef.io/organizations/daptiv -r $HOME/git/chef-repo
+if [ ! -f $HOME/.chef/knife.rb ]; then
+  knife configure --defaults -s https://manage.chef.io/organizations/daptiv -r $HOME/git/chef-repo
+else
+  echo "$HOME/.chef/knife.rb already exists..."
+  echo "To update $HOME/.chef/knife.rb please delete the knife.rb file and rerun Strap."
+fi
+
 echo "!!!!!  Remember to download your chef_user.pem to $HOME/.chef/  !!!!!"
 echo 'OK'
 
