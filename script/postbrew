@@ -8,38 +8,43 @@ BLUE="\033[0;34m"
 WHITE="\033[0;37m"
 RESET="\033[0m"
 
-echo 'Turning on vim syntax highlighting...'
+logn()  { printf -- "--> %s " "$*"; }
+logk()  { echo -e "${GREEN}OK${RESET}"; }
+
+logn 'Turning on vim syntax highlighting...'
 echo 'syntax on' >> $HOME/.vimrc
 echo 'set tabstop=2' >> $HOME/.vimrc
 echo 'set shiftwidth=2' >> $HOME/.vimrc
 echo 'set expandtab' >> $HOME/.vimrc
-echo -e "$GREEN OK $RESET"
+logk
 
-echo 'Installing vim-airline vim plugin...'
+logn 'Installing vim-airline vim plugin...'
 
 if [ ! -d "$HOME/.vim/pack/plugins/start/vim-airline/" ]; then
   git clone https://github.com/vim-airline/vim-airline.git $HOME/.vim/pack/plugins/start/vim-airline
-  echo -e "$GREEN OK $RESET"
 fi
 
-echo 'Installing NERD_tree vim plugin...'
+logk
+
+logn 'Installing NERD_tree vim plugin...'
 
 if [ ! -d "$HOME/.vim/pack/plugins/start/NERD_tree/" ]; then
   curl -o /tmp/NERD_tree.zip http://www.vim.org/scripts/download_script.php?src_id=23731
   unzip -q /tmp/NERD_tree.zip -d $HOME/.vim/pack/plugins/start/NERD_tree/
   rm /tmp/NERD_TREE.zip
-  echo -e "$GREEN OK $RESET"
 fi
 
-echo 'Updating ~/.gitconfig...'
+logk
+
+logn 'Updating ~/.gitconfig...'
 git config --global color.ui auto
-echo -e "$GREEN OK $RESET"
+logk
 
 echo 'Please login to the AppStore then hit <ENTER>'
 echo "30s timeout before continuing..."
 read -n 1 -s -t 30
 
-echo 'Installing Mac AppStore apps...'
+logn 'Installing Mac AppStore apps...'
 # 1Password
 mas install 443987910
 # Microsoft Remote Desktop
@@ -50,9 +55,9 @@ mas install 803453959
 mas install 441258766
 # Update apps that need them
 mas upgrade
-echo -e "$GREEN OK $RESET"
+logk
 
-echo 'Setting up Chef...'
+logn 'Setting up Chef...'
 if [ ! -d "$HOME/git/chef-repo" ]; then
   git clone git@github.com:daptiv/chef-repo.git $HOME/git/chef-repo
 fi
@@ -64,22 +69,24 @@ else
   echo "To update $HOME/.chef/knife.rb please delete the knife.rb file and rerun Strap."
 fi
 
-echo -e "$COLOR_YELLOW !!!!!  Remember to download your chef_user.pem to $HOME/.chef/  !!!!!"
-echo -e "$COLOR_GREEN OK $COLOR_RESET"
+echo -e "${YELLOW}!!!!!  Remember to download your chef_user.pem to $HOME/.chef/  !!!!!${RESET}"
+logk
 
-echo 'Prior to moving *.pem from ~/Downloads please ensure all relevant'
+echo -e "${YELLOW}Prior to moving *.pem from ~/Downloads please ensure all relevant"
 echo '"GO_AWS_*" pem files are downloaded from Password Safe.'
-echo '10s timeout before continuing...'
-read -n 1 -s -t 10
-
-echo 'Prior to moving Chef encryption keys from ~/Downloads please ensure all relevant'
-echo 'files are downloaded from Password Safe.'
-echo '10s timeout before continuing...'
+echo -e "10s timeout before continuing...${RESET}"
 read -n 1 -s -t 10
 
 mv $HOME/Downloads/*.pem $HOME/.ssh/
 chmod 444 $HOME/.ssh/*.pem
 echo -e "$GREEN OK $RESET"
+
+echo -e "${YELLOW}Prior to moving Chef encryption keys from ~/Downloads please ensure all relevant"
+echo 'files are downloaded from Password Safe.'
+echo -e "10s timeout before continuing...${RESET}"
+read -n 1 -s -t 10
+mv $HOME/Downloads/encrypt* $HOME/.chef/
+mv $HOME/Downloads/ops_encrypt* $HOME/.chef/
 
 echo "Setting up bash prompt to be awesome..."
 cp -rf $HOME/.dotfiles/files/.git-prompt.bash $HOME/.git-prompt.bash
