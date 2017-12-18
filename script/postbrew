@@ -49,23 +49,8 @@ if [ ! -d "$HOME/git/chef-repo" ]; then
 fi
 
 knife configure --defaults -s https://manage.chef.io/organizations/daptiv -r $HOME/git/chef-repo
+echo "!!!!!  Remember to download your chef_user.pem to $HOME/.chef/  !!!!!"
 echo 'OK'
-
-# echo 'Environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY must be set prior to'
-# echo 'running Strap.  If this is already done hit <ENTER>, otherwise exit and set these variables'
-# echo 'before running Strap.'
-# echo '10s timeout before continuing...'
-# read -n 1 -s -t 10
-
-# echo 'Setting up AWS keys...'
-# if [ ! -d "$HOME/git/ops_rolaids" ]; then
-  # git clone git@github.com:daptiv/ops_rolaids.git $HOME/git/ops_rolaids
-# fi
-
-# sh $HOME/git/ops_rolaids/assume_role.sh cicd && unset AWS_SECRET_ACCESS_KEY && unset AWS_ACCESS_KEY_ID
-
-# aws ssm get-parameters-by-path --path "/amazon/keys/" | jq --raw-output '.[][] .Name'
-# echo 'OK'
 
 echo 'Prior to moving *.pem from ~/Downloads please ensure all relevant'
 echo '"GO_AWS_*" pem files are downloaded from Password Safe.'
@@ -74,4 +59,4 @@ read -n 1 -s -t 10
 
 mv $HOME/Downloads/*.pem $HOME/.ssh/
 chmod 444 $HOME/.ssh/*.pem
-
+echo 'OK'
