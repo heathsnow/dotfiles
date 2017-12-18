@@ -66,3 +66,4 @@ read -n 1 -s -t 10
 mv $HOME/Downloads/*.pem $HOME/.ssh/
 chmod 444 $HOME/.ssh/*.pem
 echo 'OK'
+
