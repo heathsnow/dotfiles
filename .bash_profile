@@ -6,6 +6,10 @@ alias waht="pwd && ls -la"
 
 eval "$(chef shell-init bash)"
 
+# Setup 'thefuck' cmd line tool
+
+eval $(thefuck --alias)
+
 # bash prompt
                                                                                           
 source ~/.git-completion.bash                                                             
