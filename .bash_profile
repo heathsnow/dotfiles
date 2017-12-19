@@ -1,5 +1,7 @@
 alias what="pwd && ls -la"
 alias waht="pwd && ls -la"
+alias cache='sudo killall -HUP mDNSResponder'
+alias ping='ping -c 4'
 
 # Set pathing for all the embedded items that come with ChefDK
 # so I don't have to preface all commands with 'chef exec'.
