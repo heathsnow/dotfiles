@@ -21,6 +21,9 @@ PS1+="\$(git_branch)"           # prints current branch
 PS1+="\[$COLOR_YELLOW\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'                    
 export PS1
 
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
 # exports
 export EDITOR=vi
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
