@@ -40,21 +40,8 @@ logn 'Updating ~/.gitconfig...'
 git config --global color.ui auto
 logk
 
-logn 'Installing Mac AppStore apps...'
-# 1Password
-mas install 443987910
-# Microsoft Remote Desktop
-mas install 715768417
-# Slack
-mas install 803453959
-# Magnet
-mas install 441258766
-# Update apps that need them
-mas upgrade
-logk
-
-echo 'For the Chef setup you should have already downloaded your chef_user.pem to $HOME/.chef/'
-echo "To update $HOME/.chef/knife.rb please delete any existing knife.rb file and rerun Strap."
+# For the Chef setup you should have already downloaded your chef_user.pem to $HOME/.chef/
+# To update $HOME/.chef/knife.rb please delete any existing knife.rb file and rerun Strap.
 
 logn 'Setting up Chef...'
 if [ ! -d "$HOME/git/chef-repo" ]; then
@@ -63,25 +50,29 @@ fi
 
 if [ ! -f $HOME/.chef/knife.rb ]; then
   knife configure --defaults -s https://manage.chef.io/organizations/daptiv -r $HOME/git/chef-repo
-else
-  echo "$HOME/.chef/knife.rb already exists..."
-  echo "To update $HOME/.chef/knife.rb please delete the knife.rb file and rerun Strap."
 fi
-
 logk
 
-logn "Moving *.pem files from $HOME/Downloads/ to $HOME/.ssh/"
-
-mv $HOME/Downloads/*.pem $HOME/.ssh/
-chmod 444 $HOME/.ssh/*.pem
+logn "Moving *.pem files from $HOME/Downloads/ to $HOME/.ssh/..."
+count=`ls -1 *.pem 2>/dev/null | wc -l`
+if [ $count != 0 ]; then
+  mv $HOME/Downloads/*.pem $HOME/.ssh/
+  chmod 444 $HOME/.ssh/*.pem
+fi
 logk
 
-logn "Moving Chef encryption keys from $HOME/Downloads/ to $HOME/.chef/"
-mv $HOME/Downloads/encrypt* $HOME/.chef/
-mv $HOME/Downloads/ops_encrypt* $HOME/.chef/
+logn "Moving Chef encryption keys from $HOME/Downloads/ to $HOME/.chef/..."
+mv $HOME/Downloads/encrypt* $HOME/.chef/ &>/dev/null
+mv $HOME/Downloads/ops_encrypt* $HOME/.chef/ &>/dev/null
 logk
 
 logn 'Setting up bash prompt to be awesome...'
-cp -rf $HOME/.dotfiles/files/.git-prompt.bash $HOME/.git-prompt.bash
-wget -O $HOME/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+if [ ! -f $HOME/.git-prompt.bash ]; then
+  cp -rf $HOME/.dotfiles/files/.git-prompt.bash $HOME/.git-prompt.bash
+fi
+
+if [ ! -f $HOME/.git-completion.bash ]; then
+  wget -O $HOME/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+fi
 logk
+
