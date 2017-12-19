@@ -9,7 +9,7 @@ WHITE="\033[0;37m"
 RESET="\033[0m"
 
 logn()  { printf -- "--> %s " "$*"; }
-logk()  { echo -e "${GREEN}OK${RESET}"; }
+logk()  { echo -e "${GREEN}✔${RESET}"; }
 
 logn 'Turning on vim syntax highlighting...'
 echo 'syntax on' >> $HOME/.vimrc
@@ -40,10 +40,6 @@ logn 'Updating ~/.gitconfig...'
 git config --global color.ui auto
 logk
 
-echo 'Please login to the AppStore then hit <ENTER>'
-echo "30s timeout before continuing..."
-read -n 1 -s -t 30
-
 logn 'Installing Mac AppStore apps...'
 # 1Password
 mas install 443987910
@@ -57,6 +53,9 @@ mas install 441258766
 mas upgrade
 logk
 
+echo 'For the Chef setup you should have already downloaded your chef_user.pem to $HOME/.chef/'
+echo "To update $HOME/.chef/knife.rb please delete any existing knife.rb file and rerun Strap."
+
 logn 'Setting up Chef...'
 if [ ! -d "$HOME/git/chef-repo" ]; then
   git clone git@github.com:daptiv/chef-repo.git $HOME/git/chef-repo
@@ -69,24 +68,18 @@ else
   echo "To update $HOME/.chef/knife.rb please delete the knife.rb file and rerun Strap."
 fi
 
-echo -e "${YELLOW}!!!!!  Remember to download your chef_user.pem to $HOME/.chef/  !!!!!${RESET}"
 logk
 
-echo -e "${YELLOW}Prior to moving *.pem from ~/Downloads please ensure all relevant"
-echo '"GO_AWS_*" pem files are downloaded from Password Safe.'
-echo -e "10s timeout before continuing...${RESET}"
-read -n 1 -s -t 10
+logn "Moving *.pem files from $HOME/Downloads/ to $HOME/.ssh/"
 
 mv $HOME/Downloads/*.pem $HOME/.ssh/
 chmod 444 $HOME/.ssh/*.pem
-echo -e "$GREEN OK $RESET"
+logk
 
-echo -e "${YELLOW}Prior to moving Chef encryption keys from ~/Downloads please ensure all relevant"
-echo 'files are downloaded from Password Safe.'
-echo -e "10s timeout before continuing...${RESET}"
-read -n 1 -s -t 10
+logn "Moving Chef encryption keys from $HOME/Downloads/ to $HOME/.chef/"
 mv $HOME/Downloads/encrypt* $HOME/.chef/
 mv $HOME/Downloads/ops_encrypt* $HOME/.chef/
+logk
 
 logn 'Setting up bash prompt to be awesome...'
 cp -rf $HOME/.dotfiles/files/.git-prompt.bash $HOME/.git-prompt.bash
