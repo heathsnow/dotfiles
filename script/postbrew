@@ -50,6 +50,10 @@ git config --global color.ui auto
 git config --global browser.ch.cmd "open -a \"/Applications/Google Chrome.app\""
 logk
 
+logn 'Configure `screen` start-up to use a login shell...'
+grep -q -F 'shell -$SHELL' $HOME/.screenrc || echo 'shell -$SHELL' >> $HOME/.screenrc
+logk
+
 # For the Chef setup you should have already downloaded your chef_user.pem to $HOME/.chef/
 # To update $HOME/.chef/knife.rb please delete any existing knife.rb file and rerun Strap.
 
