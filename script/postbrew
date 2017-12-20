@@ -36,6 +36,12 @@ fi
 
 logk
 
+logn 'Installing vim-fugitive plugin...'
+if [ ! -d "$HOME/.vim/pack/plugins/start/vim-fugitive/" ]; then
+  git clone git@github.com:tpope/vim-fugitive.git $HOME/.vim/pack/plugins/start/vim-fugitive
+fi
+logk
+
 logn 'Updating ~/.gitconfig...'
 git config --global color.ui auto
 logk
