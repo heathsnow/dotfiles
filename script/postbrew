@@ -22,6 +22,7 @@ logn 'Installing vim-airline vim plugin...'
 
 if [ ! -d "$HOME/.vim/pack/plugins/start/vim-airline/" ]; then
   git clone https://github.com/vim-airline/vim-airline.git $HOME/.vim/pack/plugins/start/vim-airline
+  vim -u NONE -c "helptags $HOME/.vim/pack/plugins/start/vim-airline/doc" -c -q
 fi
 
 logk
@@ -32,6 +33,7 @@ if [ ! -d "$HOME/.vim/pack/plugins/start/NERD_tree/" ]; then
   curl -o /tmp/NERD_tree.zip http://www.vim.org/scripts/download_script.php?src_id=23731
   unzip -q /tmp/NERD_tree.zip -d $HOME/.vim/pack/plugins/start/NERD_tree/
   rm /tmp/NERD_TREE.zip
+  vim -u NONE -c "helptags $HOME/.vim/pack/plugins/start/NERD_tree/doc" -c -q
 fi
 
 logk
@@ -39,6 +41,7 @@ logk
 logn 'Installing vim-fugitive plugin...'
 if [ ! -d "$HOME/.vim/pack/plugins/start/vim-fugitive/" ]; then
   git clone git@github.com:tpope/vim-fugitive.git $HOME/.vim/pack/plugins/start/vim-fugitive
+  vim -u NONE -c "helptags $HOME/.vim/pack/plugins/start/vim-fugitive/doc" -c -q
 fi
 logk
 
