@@ -45,6 +45,13 @@ if [ ! -d "$HOME/.vim/pack/plugins/start/vim-fugitive/" ]; then
 fi
 logk
 
+logn 'Installing vim-terraform plugin...'
+if [ ! -d "$HOME/.vim/pack/plugins/start/vim-terraform/" ]; then
+  git clone git@github.com:tpope/vim-terraform.git $HOME/.vim/pack/plugins/start/vim-terraform
+  vim -u NONE -c "helptags $HOME/.vim/pack/plugins/start/vim-terraform/doc" -c -q
+fi
+logk
+
 logn 'Updating ~/.gitconfig...'
 git config --global color.ui auto
 git config --global browser.ch.cmd "open -a \"/Applications/Google Chrome.app\""
