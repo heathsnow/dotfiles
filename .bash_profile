@@ -15,7 +15,7 @@ eval $(thefuck --alias)
 source ~/.git-completion.bash
 source ~/.git-prompt.bash
                                                                                           
-PS1="$COLOR_YELLOW\u@\h:$COLOR_CYAN\w$COLOR_RESET "
+PS1="\[$COLOR_YELLOW\]\u@\h:\[$COLOR_CYAN\]\w\[$COLOR_RESET\] "
 PS1+="\[\$(git_color)\]"        # colors git status                                       
 PS1+="\$(git_branch)"           # prints current branch
 PS1+="\[$COLOR_YELLOW\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'                    
