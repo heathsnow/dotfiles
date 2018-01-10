@@ -1,6 +1,7 @@
 brew "graphviz"
 brew "jq"
 brew "mas"
+brew "screen"
 brew "thefuck"
 brew "tree"
 brew "wget"
