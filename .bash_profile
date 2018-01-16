@@ -1,6 +1,8 @@
 # alias
 alias what="pwd && ls -a"
 alias waht="pwd && ls -a"
+alias clar="clear"
+alias claer="clear"
 alias cache='sudo killall -HUP mDNSResponder'
 alias ping='ping -c 4'
 
