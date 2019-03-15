@@ -16,11 +16,12 @@ eval $(thefuck --alias)
 # bash prompt
 source ~/.git-completion.bash
 source ~/.git-prompt.bash
-                                                                                          
+source ~/.heath-exports.bash
+
 PS1="\[$COLOR_YELLOW\]\u@localhost:\[$COLOR_CYAN\]\w\[$COLOR_RESET\] "
-PS1+="\[\$(git_color)\]"        # colors git status                                       
+PS1+="\[\$(git_color)\]"        # colors git status
 PS1+="\$(git_branch)"           # prints current branch
-PS1+="\[$COLOR_YELLOW\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'                    
+PS1+="\[$COLOR_YELLOW\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'
 export PS1
 
 export CLICOLOR=1
