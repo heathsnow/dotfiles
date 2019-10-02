@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
 cp $PWD/.Brewfile ~/.
+cp $PWD/.bash_profile ~/.
