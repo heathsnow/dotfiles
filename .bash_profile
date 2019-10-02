@@ -8,7 +8,7 @@ alias ping='ping -c 4'
 
 # Set pathing for all the embedded items that come with ChefDK
 # so I don't have to preface all commands with 'chef exec'.
-eval "$(chef shell-init bash)"
+# eval "$(chef shell-init bash)"
 
 # Setup 'thefuck' cmd line tool
 eval $(thefuck --alias)
@@ -16,7 +16,6 @@ eval $(thefuck --alias)
 # bash prompt
 source ~/.git-completion.bash
 source ~/.git-prompt.bash
-source ~/.heath-exports.bash
 
 PS1="\[$COLOR_YELLOW\]\u@localhost:\[$COLOR_CYAN\]\w\[$COLOR_RESET\] "
 PS1+="\[\$(git_color)\]"        # colors git status
