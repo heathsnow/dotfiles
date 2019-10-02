@@ -29,4 +29,4 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # exports
 export EDITOR=vi
-export VAGRANT_DEFAULT_PROVIDER=virtualbox
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion

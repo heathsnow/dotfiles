@@ -2,3 +2,5 @@
 
 cp $PWD/.Brewfile ~/.
 cp $PWD/.bash_profile ~/.
+cp $PWD/.git-completion.bash ~/.
+cp $PWD/.git-prompt.bash ~/.
