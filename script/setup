@@ -3,3 +3,4 @@
 cp $PWD/.Brewfile ~/.
 cp $PWD/.bash_profile ~/.
 bash $PWD/script/postbrew
+brew tap versent/homebrew-taps
