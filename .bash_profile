@@ -5,9 +5,10 @@ alias clar="clear"
 alias claer="clear"
 alias cache='sudo killall -HUP mDNSResponder'
 alias ping='ping -c 4'
-alias login-shared='saml2aws login --force --skip-prompt --idp-account="impinj-shared-svcs"'
-alias login-sec='saml2aws login --force --skip-prompt --idp-account="impinjsec"'
-alias login-monza='saml2aws login --force --skip-prompt --idp-account="impinj-shared-svcs-monza"'
+alias login-shared='saml2aws login --force --skip-prompt --idp-account="impinj-shared"'
+alias login-sec='saml2aws login --force --skip-prompt --idp-account="impinj-sec"'
+alias login-monza='saml2aws login --force --skip-prompt --idp-account="impinj-monza"'
+alias login-master='saml2aws login --force --skip-prompt --idp-account="impinj-master"'
 
 # Set pathing for all the embedded items that come with ChefDK
 # so I don't have to preface all commands with 'chef exec'.
