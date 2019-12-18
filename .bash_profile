@@ -9,7 +9,7 @@ alias login-shared='saml2aws login --force --skip-prompt --idp-account="impinj-s
 alias login-sec='saml2aws login --force --skip-prompt --idp-account="impinj-sec"'
 alias login-monza='saml2aws login --force --skip-prompt --idp-account="impinj-monza"'
 alias login-master='saml2aws login --force --skip-prompt --idp-account="impinj-master"'
-alias login-master='saml2aws login --force --skip-prompt --idp-account="impinj-keygent-nonprod"'
+alias login-keygen-nonprod='saml2aws login --force --skip-prompt --idp-account="impinj-keygen-nonprod"'
 
 # Set pathing for all the embedded items that come with ChefDK
 # so I don't have to preface all commands with 'chef exec'.
