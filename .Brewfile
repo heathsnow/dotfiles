@@ -1,3 +1,4 @@
+brew "github/gh/gh"
 brew "graphviz"
 brew "jq"
 brew "mas"
