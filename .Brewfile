@@ -1,4 +1,5 @@
 brew "github/gh/gh"
+brew "git-lfs"
 brew "graphviz"
 brew "jesseduffield/lazydocker/lazydocker"
 brew "jq"
