@@ -34,3 +34,4 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # exports
 export EDITOR=vi
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+export BASH_SILENCE_DEPRECATION_WARNING=1
