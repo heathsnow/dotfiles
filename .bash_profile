@@ -22,6 +22,9 @@ eval $(thefuck --alias)
 source ~/.git-completion.bash
 source ~/.git-prompt.bash
 
+# secret environment exports
+source ~/.heath_profile
+
 PS1="\[$COLOR_YELLOW\]\u@localhost:\[$COLOR_CYAN\]\w\[$COLOR_RESET\] "
 PS1+="\[\$(git_color)\]"        # colors git status
 PS1+="\$(git_branch)"           # prints current branch
