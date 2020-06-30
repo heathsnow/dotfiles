@@ -1,5 +1,6 @@
-brew "github/gh/gh"
+brew "derailed/k9s/k9s"
 brew "git-lfs"
+brew "github/gh/gh"
 brew "graphviz"
 brew "jesseduffield/lazydocker/lazydocker"
 brew "jq"
@@ -17,4 +18,3 @@ cask "chef/chef/chefdk"
 cask "diffmerge"
 cask "gimp"
 cask "visual-studio-code"
-
