@@ -1,5 +1,4 @@
 brew "derailed/k9s/k9s"
-| hsm-nonprod-dev | [![hsm-nonprod-dev-hsm-manual](https://github.com/impinj/terraform_cloudhsm/workflows/hsm-nonprod-dev-hsm-manual/badge.svg)](https://github.com/impinj/terraform_cloudhsm/actions?query=workflow%3Ahsm-nonprod-dev-hsm-manual) |
 brew "git-lfs"
 brew "github/gh/gh"
 brew "graphviz"
