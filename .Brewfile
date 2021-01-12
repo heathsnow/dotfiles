@@ -1,6 +1,6 @@
 brew "derailed/k9s/k9s"
 brew "git-lfs"
-brew "github/gh/gh"
+brew "gh"
 brew "gnupg"
 brew "graphviz"
 brew "jesseduffield/lazydocker/lazydocker"
