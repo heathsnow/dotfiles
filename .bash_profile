@@ -38,3 +38,6 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export EDITOR=vi
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 export BASH_SILENCE_DEPRECATION_WARNING=1
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
