@@ -1,3 +1,4 @@
+brew "aws-sam-cli"
 brew "derailed/k9s/k9s"
 brew "git-lfs"
 brew "gh"
