@@ -5,16 +5,14 @@ alias clar="clear"
 alias claer="clear"
 alias cache='sudo killall -HUP mDNSResponder'
 alias ping='ping -c 4'
+alias python=/usr/local/bin/python3
 
 login-aws() {
   saml2aws login --force --skip-prompt --idp-account="$1"
   unset AWS_ACCESS_KEY_ID
   unset AWS_SECRET_ACCESS_KEY
+  export AWS_PROFILE=$1
 }
-
-# Set pathing for all the embedded items that come with ChefDK
-# so I don't have to preface all commands with 'chef exec'.
-# eval "$(chef shell-init bash)"
 
 # Setup 'thefuck' cmd line tool
 eval $(thefuck --alias)
@@ -42,3 +40,4 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # export GOPATH=$HOME/go
 # export GOROOT="$(brew --prefix golang)/libexec"
 # export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export PATH="$PATH:/Users/hsnow/Library/Python/3.10/bin"
