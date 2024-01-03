@@ -5,6 +5,7 @@ cp $PWD/.bash_profile ~/.
 bash $PWD/script/postbrew
 brew tap versent/homebrew-taps
 brew tap aws/tap
+brew tap common-fate/granted
 brew tap hashicorp/tap
 brew tap turbot/tap
 brew tap ankitpokhrel/jira-cli
