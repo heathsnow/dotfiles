@@ -41,3 +41,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # export GOROOT="$(brew --prefix golang)/libexec"
 # export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 export PATH="$PATH:/Users/hsnow/Library/Python/3.10/bin"
+
+# https://www.granted.dev
+alias assume=". assume"
+
