@@ -14,9 +14,6 @@ login-aws() {
   export AWS_PROFILE=$1
 }
 
-# Setup 'thefuck' cmd line tool
-eval $(thefuck --alias)
-
 # bash prompt
 source ~/.git-completion.bash
 source ~/.git-prompt.bash
