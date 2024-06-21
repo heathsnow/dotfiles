@@ -1,4 +1,5 @@
 brew "act"
+brew "ansible"
 brew "bat"
 brew "fzf"
 brew "git-lfs"
