@@ -1,14 +1,23 @@
 # alias
 alias what="pwd && ls -a"
 alias waht="pwd && ls -a"
+alias cat="/opt/homebrew/bin/bat"
 alias clar="clear"
 alias claer="clear"
 alias cache='sudo killall -HUP mDNSResponder'
 alias ping='ping -c 4'
 alias python=/usr/local/bin/python3
+alias login-ansible='aws ssm start-session --target  "`aws ec2 describe-instances --filter "Name=tag:Name,Values=${PWD##*/}" "Name=instance-state-name,Values=running" --query "Reservations[*].Instances[*].[InstanceId]" --output text`"'
 
 login-aws() {
   saml2aws login --force --skip-prompt --idp-account="$1"
+  unset AWS_ACCESS_KEY_ID
+  unset AWS_SECRET_ACCESS_KEY
+  export AWS_PROFILE=$1
+}
+
+login-sso() {
+  aws sso login --profile $1
   unset AWS_ACCESS_KEY_ID
   unset AWS_SECRET_ACCESS_KEY
   export AWS_PROFILE=$1
