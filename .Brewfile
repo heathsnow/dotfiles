@@ -1,5 +1,6 @@
 brew "act"
 brew "ansible"
+brew "azure-cli"
 brew "bat"
 brew "fzf"
 brew "git-lfs"
