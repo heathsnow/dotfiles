@@ -1,5 +1,6 @@
 brew "act"
 brew "ansible"
+brew "argocd"
 brew "azure-cli"
 brew "bat"
 brew "fzf"
