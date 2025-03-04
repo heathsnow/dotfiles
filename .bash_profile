@@ -23,6 +23,12 @@ login-sso() {
   export AWS_PROFILE=$1
 }
 
+login-azure() {
+  az config set core.login_experience_v2=off
+  az login
+  export ARM_SUBSCRIPTION_ID=$(az account show | jq -r .id)
+}
+
 # bash prompt
 source ~/.git-completion.bash
 source ~/.git-prompt.bash
