@@ -1,6 +1,7 @@
 brew "act"
 brew "ansible"
 brew "argocd"
+brew "aztfexport"
 brew "azure-cli"
 brew "bat"
 brew "fzf"
